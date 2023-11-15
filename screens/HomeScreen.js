@@ -43,7 +43,7 @@ export default function HomeScreen() {
                   <FeatureRow 
                   key={index}
                   title={items.title}
-                  resturants={items.restaurants}
+                  restaurants={items.restaurants}
                   description={items.description} />
                 )
               }
