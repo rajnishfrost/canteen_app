@@ -5,9 +5,11 @@ import { themeColors } from '../theme'
 import * as Icon from "react-native-feather";
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSelector } from 'react-redux';
+import { selectCanteen } from '../slices/canteenSlice';
 
 export default function CartScreen() {
-  const restaurant =featured.restaurants[0]
+  const restaurant = useSelector(selectCanteen)
   const navigation = useNavigation()
   return (
     

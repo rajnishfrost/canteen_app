@@ -1,16 +1,24 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../theme";
 import DishRow from "../components/dishRow";
 import BasketIcon from "../components/basketIcon";
+import { useDispatch } from "react-redux";
+import { setCanteen } from "../slices/canteenSlice";
 
 export default function CanteenScreen() {
   const { params } = useRoute();
   let item = params;
+  const dispatch = useDispatch()
   const navigation = useNavigation();
   // console.log("rest", item)
+  useEffect(() => {
+     if(item && item.id ){
+      dispatch(setCanteen({...item}))
+     }
+  }, [])
   return (
     <View>
       <BasketIcon />

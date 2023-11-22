@@ -2,8 +2,18 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket, removeFromBasket, selectBasketItemsById } from "../slices/basketSlice";
 
 export default function DishRow({ item }) {
+  const  dispatch = useDispatch();
+    const basketItems = useSelector(state=> selectBasketItemsById(state, item.id));
+    const handleIncrease = ()=>{
+        dispatch(addToBasket({...item}));
+    }
+    const handleDecrease = ()=>{
+        dispatch(removeFromBasket({id : item.id}))
+    }
   return (
     <>
       <View
@@ -31,6 +41,8 @@ export default function DishRow({ item }) {
             </Text>
             <View className="flex-row items-center">
               <TouchableOpacity
+              onPress={handleDecrease}
+              disabled={!basketItems.length} 
                 className="p-1 rounded-full"
                 style={{ backgroundColor: themeColors.bgColor(1) }}
               >
@@ -41,9 +53,10 @@ export default function DishRow({ item }) {
                   stroke="white"
                 />
               </TouchableOpacity>
-              <Text className="px-3">{2}</Text>
+              <Text className="px-3">{basketItems.length}</Text>
 
               <TouchableOpacity
+                onPress={handleIncrease}
                 className="p-1 rounded-full"
                 style={{ backgroundColor: themeColors.bgColor(1) }}
               >

@@ -2,10 +2,13 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { themeColors } from '../theme'
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
+import { selectBasketItems } from '../slices/basketSlice'
 
 export default function BasketIcon() {
   const navigation = useNavigation()
-  
+  const basketItems = useSelector(selectBasketItems)
+  if(!basketItems.length) return;
   return (
     <View className="absolute bottom-5 w-full z-50">
         <TouchableOpacity 
