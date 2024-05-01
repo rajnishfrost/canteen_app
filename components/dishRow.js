@@ -28,7 +28,7 @@ export default function DishRow({ item }) {
         <Image
           className="rounded-3xl"
           style={{ height: 100, width: 100 }}
-          source={item.image}
+          src={item.image}
         />
         <View className="flex flex-1 space-y-3">
           <View className="pl-3">
@@ -37,7 +37,7 @@ export default function DishRow({ item }) {
           </View>
           <View className="flex-row pl-3 justify-between items-center">
             <Text className="text-gray-700 text-lg font-bold">
-              ${item.price}
+            ₹{item.price}
             </Text>
             <View className="flex-row items-center">
               <TouchableOpacity

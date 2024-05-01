@@ -8,7 +8,7 @@ export default function CanteenCard({ item }) {
   const navigation = useNavigation()
   return (
     <TouchableOpacity
-    onPress={() => navigation.navigate('Canteen', {...item})}>
+      onPress={() => navigation.navigate('Canteen', { ...item })}>
       <View
         style={{
           shadowColor: themeColors.bgColor(1),
@@ -18,7 +18,7 @@ export default function CanteenCard({ item }) {
         }}
         className="shadow-2xl mr-6 bg-white rounded-3xl"
       >
-        <Image className="h-36 w-64 rounded-t-3xl" source={item.image} />
+        <Image className="h-36 w-64 rounded-t-3xl" src={item.image} />
         <View className="px-3 pb-4 space-y-2">
           <Text className="text-lg font-bold pt-2">{item.name}</Text>
           <View className="flex-row items-center space-x-1">
@@ -35,12 +35,12 @@ export default function CanteenCard({ item }) {
             </Text>
           </View>
 
-          <View className="flex-row items-center space-x-1">
+          {/* <View className="flex-row items-center space-x-1">
             <Icon.MapPin color="gray" width="15" height="15" />
             <Text className="text-gray-700 text-xs">
               Nearby- {item.address}
             </Text>
-          </View>
+          </View> */}
         </View>
       </View>
     </TouchableOpacity>

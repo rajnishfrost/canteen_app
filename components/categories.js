@@ -20,7 +20,7 @@ export default function Categories() {
              <View key={index} className="flex justify-center items-center mr-6">
               <TouchableOpacity 
               onPress={() => setactiveCategory(category.id)} className={"p-1 rounded-full shadow " + btnClass }>
-                  <Image style={{width:45, height: 45}} source={category.image} />
+                  <Image style={{width:45, height: 45 , borderRadius : "30px"}} src={category.image} />
               </TouchableOpacity>
               <Text className={"text-sm" + textClass}>{category.name}</Text>
              </View>

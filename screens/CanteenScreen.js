@@ -24,7 +24,7 @@ export default function CanteenScreen() {
       <BasketIcon />
       <ScrollView>
         <View className="relative">
-          <Image className="w-full h-72" source={item.image} />
+          <Image className="w-full h-72" src={item.image} />
           <TouchableOpacity
             className="absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow"
             onPress={() => navigation.goBack()}
